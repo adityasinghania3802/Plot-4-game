@@ -95,7 +95,7 @@ async def watch(websocket, watch_key):
         connected.remove(websocket)    
 
 async def play(websocket, game, player, connected):
-
+    # The async for message in websocket: loop will exit when there are no more messages to process, which happens when the WebSocket connection is closed. Websocket connection is closed when the browser tab is closed or a game is won by a player.
     async for message in websocket:
         # Parse a "play" event from the UI.
         event = json.loads(message)
